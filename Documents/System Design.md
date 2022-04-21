@@ -54,6 +54,11 @@ Fejlesztő eszközök:
 
 
 ## 7. Architektúrális tervek
+ - Alkalmazás fejlesztéshez szükséges egy adatbázis szerver, amit MySQL-el valósítunk meg.
+ - Java
+ - Swing (Ablakos alkalmazás létrehozása)
+ - PHP
+
 
 ##  8. Adatbázis terv
 
