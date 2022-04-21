@@ -43,6 +43,8 @@ Törvényi előírások, szabályok:
 
 ## 10. Tesztterv 
 
+Az alkalmazáshoz Unit tesztek is fognak készülni, ezen felül bármilyen problémát a log fájlba fogjuk menteni, kiírni. Ennek köszönhetően egyszerűbb lesz a karbantartás.
+
 ## 11. Telepítési terv
 
 ## 12. Karbantartási terv
