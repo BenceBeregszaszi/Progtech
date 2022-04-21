@@ -8,6 +8,14 @@ illetve leadja a rendelést és ezt az adatot eltárolja egy adatbázisban.
 Az alkalmazás használatához nem szükséges a bejelentkezés.
 
 ## 2. Projektterv
+Projektmunkák és felelősei:
+
+ - Adatbázis tervezése és létrehozása: Beregszászi Bence, Nagy Péter Axel
+ - API tervezése és létrehozása: Beregszászi Bence, Nagy Péter Axel
+ - Java alapú alkalmazás tervezése: Beregszászi Bence, Nagy Péter Axel
+ - Java alapú alkalmazás megvalósítása: Beregszászi Bence, Nagy Péter Axel
+ - Tesztelés: Beregszászi Bence, Nagy Péter Axel
+
 
 ## 3. Üzleti folyamatok modellje
 
