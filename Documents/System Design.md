@@ -37,6 +37,8 @@ Törvényi előírások, szabályok:
 
 ##  8. Adatbázis terv
 
+![Adatbázis terv](https://imgur.com/fPGQ3Cb.png)
+
 ## 9. Implementációs terv
 
 ## 10. Tesztterv 
