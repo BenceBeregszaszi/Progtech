@@ -16,6 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `orders` (
+  `order_id` int(11) NOT NULL AUTO_INCREMENT,
+  `pizza_id` int(11) DEFAULT NULL,
+  `topping_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`order_id`),
+  KEY `FK_foreing` (`topping_id`),
+  KEY `FK_pizza` (`pizza_id`),
+  CONSTRAINT `FK_foreing` FOREIGN KEY (`topping_id`) REFERENCES `toppings` (`toppings_id`),
+  CONSTRAINT `FK_pizza` FOREIGN KEY (`pizza_id`) REFERENCES `pizza` (`number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `pizza`
 --
 
@@ -73,4 +101,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-21 17:51:23
+-- Dump completed on 2022-04-21 17:57:08
