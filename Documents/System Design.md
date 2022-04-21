@@ -71,6 +71,7 @@ Fejlesztő eszközök:
 Az alkalmazáshoz Unit tesztek is fognak készülni, ezen felül bármilyen problémát a log fájlba fogjuk menteni, kiírni. Ennek köszönhetően egyszerűbb lesz a karbantartás.
 
 ## 11. Telepítési terv
+Az alkalmazás használatához számítógép, illetve internet kapcsolat szükséges.
 
 ## 12. Karbantartási terv
 
