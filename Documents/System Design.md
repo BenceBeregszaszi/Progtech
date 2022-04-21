@@ -40,6 +40,18 @@ Törvényi előírások, szabályok:
 ## 5. Funkcionális terv
 
 ## 6. Fizikai környezet
+Az alkalmazás asztali platformra készült.
+Java nyelv segítségével valósul meg az elkészítése.
+
+Fejlesztő eszközök:
+ - IntelliJ IDEA
+ - Visual Studio Code
+ - MySQL Workbench
+ - DataGrip
+ - XAMPP
+ - CodeTogether
+ - Diagrams.Net
+
 
 ## 7. Architektúrális tervek
 
