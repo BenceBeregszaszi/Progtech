@@ -11,6 +11,9 @@ Az alkalmazás használatához nem szükséges a bejelentkezés.
 
 ## 3. Üzleti folyamatok modellje
 
+![Üzleti folyamatok modellje](https://imgur.com/Bcvd2EI.png)
+
+
 ## 4. Követelmények
 
 ## 5. Funkcionális terv
