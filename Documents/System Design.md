@@ -1,6 +1,11 @@
 # Rendszerterv
 
 ## 1. A rendszer célja
+Fejlesztő csapatunkhoz fordult egy olasz pizzéria,
+hogy segítsen nekik létrehozni egy Java alapú asztali alkalmazást,
+aminek segítségével a megrendelő készíteni tud magának saját pizzát, 
+illetve leadja a rendelést és ezt az adatot eltárolja egy adatbázisban.
+Az alkalmazás használatához nem szükséges a bejelentkezés.
 
 ## 2. Projektterv
 
