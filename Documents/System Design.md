@@ -16,6 +16,19 @@ Az alkalmazás használatához nem szükséges a bejelentkezés.
 
 ## 4. Követelmények
 
+-Ablakos alkalmazás (User friendly)
+
+-Adatok tárolása adatbázisban
+
+-Adatbázissal való kommunikáció logolása
+
+-Rendelés módosítása (Automatikusan)
+
+Törvényi előírások, szabályok:
+ - Az alkalmazás JAVA alapokon készül	
+ - Intuitív, átlátható rendszer
+ - GDRP (Általános adatvédelmi rendelet)
+
 ## 5. Funkcionális terv
 
 ## 6. Fizikai környezet
