@@ -91,6 +91,12 @@ Fejlesztő eszközök:
 ![Adatbázis terv](https://imgur.com/fPGQ3Cb.png)
 
 ## 9. Implementációs terv
+Az alkalmazás Java nyelven készül. 
+Az ablakok megjelenítését, módosítását Swing-segítségévle fogjuk kezelni. 
+A fejlesztés során két tervezési mintát fogunk megvalósítani. 
+Az első a díszítő amivel a pizzákra lehet különböző feltéteket rakni. 
+A második pedig a megfigyelő melynek segíségével pizza
+összerakást követően elmenti az adatbázisba majd frissíti a rendelések oldalt.
 
 ## 10. Tesztterv 
 
