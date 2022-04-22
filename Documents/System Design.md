@@ -38,6 +38,32 @@ Törvényi előírások, szabályok:
  - GDRP (Általános adatvédelmi rendelet)
 
 ## 5. Funkcionális terv
+ - Rendszerszereplők
+     - Regisztrált felhasználó
+     - Admin
+     - Nem regisztrált felhasználó
+ - Rendszerhasználati esetek és lefutásaik:
+   - Admin:
+     - A rendszer felett korlátlan hozzáférés
+     - Pizzák kezelése
+     - Felhasználók kezelése
+     - Rendelések kezelése
+   - Regisztrált felhasználó:
+     - A pizzák böngészése
+     - Rendelés összerakása
+     - Rendelés lemondása
+   - Nem regisztrált felhasználó:
+     - A pizzák böngészése
+     - Rendelés összerakása
+ - Menü-architektúrák:
+   - Regisztráció:
+     - A felhasználó tud regisztrálni az alkalmazásba így nem kell megadni a szállítási adatokat
+   - Bejelentkezés:
+     - Autentikációs lehetőség
+     - Rendelések megtekintése
+   - Pizzák:
+     - Vlogatni lehet a különbőző pizzák közül és őssze is lehet rakni egyedit
+   - Kijelentkezés
 
 ## 6. Fizikai környezet
 Az alkalmazás asztali platformra készült.
