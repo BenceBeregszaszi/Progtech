@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2022. Ápr 27. 14:48
+-- Létrehozás ideje: 2022. Ápr 27. 14:59
 -- Kiszolgáló verziója: 10.4.22-MariaDB
 -- PHP verzió: 8.1.2
 
@@ -24,13 +24,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Tábla szerkezet ehhez a táblához `delivery`
+--
+
+CREATE TABLE `delivery` (
+  `delivery_id` int(11) NOT NULL,
+  `location` varchar(100) NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Tábla szerkezet ehhez a táblához `orders`
 --
 
 CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL,
   `pizza_id` int(11) DEFAULT NULL,
-  `topping_id` int(11) DEFAULT NULL
+  `topping_id` int(11) DEFAULT NULL,
+  `delivery_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -86,12 +99,19 @@ CREATE TABLE `users` (
 --
 
 --
+-- A tábla indexei `delivery`
+--
+ALTER TABLE `delivery`
+  ADD PRIMARY KEY (`delivery_id`);
+
+--
 -- A tábla indexei `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`order_id`),
   ADD KEY `FK_foreing` (`topping_id`),
-  ADD KEY `FK_pizza` (`pizza_id`);
+  ADD KEY `FK_pizza` (`pizza_id`),
+  ADD KEY `delivery_id` (`delivery_id`);
 
 --
 -- A tábla indexei `pizza`
@@ -121,6 +141,12 @@ ALTER TABLE `users`
 --
 -- A kiírt táblák AUTO_INCREMENT értéke
 --
+
+--
+-- AUTO_INCREMENT a táblához `delivery`
+--
+ALTER TABLE `delivery`
+  MODIFY `delivery_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT a táblához `orders`
@@ -155,7 +181,8 @@ ALTER TABLE `toppings`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `FK_foreing` FOREIGN KEY (`topping_id`) REFERENCES `toppings` (`toppings_id`),
-  ADD CONSTRAINT `FK_pizza` FOREIGN KEY (`pizza_id`) REFERENCES `pizza` (`number`);
+  ADD CONSTRAINT `FK_pizza` FOREIGN KEY (`pizza_id`) REFERENCES `pizza` (`number`),
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`delivery_id`) REFERENCES `delivery` (`delivery_id`);
 
 --
 -- Megkötések a táblához `users`
