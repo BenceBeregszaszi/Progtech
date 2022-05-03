@@ -12,13 +12,13 @@ public class DataNode implements Observer {
       String jdbcURL = "jdbc:mysql://localhost:3306/pizza";
       String username = "ROOT";
       String password = "ROOT";
-      Connection connection;
-      return connection = DriverManager.getConnection(jdbcURL, username, password);
+      Connection connection =  DriverManager.getConnection(jdbcURL, username, password);;
+      return connection;
    }
 
    @Override
    public void update() {
-
+      //main window lista frissítés
    }
 }
 
