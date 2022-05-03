@@ -14,6 +14,7 @@ public class MainForm extends JFrame{
     private JButton btn_register;
     private JPanel main_panel;
     public JLabel logged_in;
+    private JButton logoutButton;
     private static Users user;
 
     public static void setUser(Users tempuser){
@@ -50,7 +51,6 @@ public class MainForm extends JFrame{
                 logged_in.setText("");
             }
         });
-
     }
     
 
