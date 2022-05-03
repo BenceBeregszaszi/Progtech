@@ -1,5 +1,10 @@
 package Classes;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -42,4 +47,33 @@ public class Users {
     }
 
     private List<Users> usersList;
+
+    public void Create(String username, String password) {
+        try {
+            Connection conn = DataNode.getConnection();
+            Statement st = conn.createStatement();
+            String query = "INSERT INTO users VALUES (%s, %s 0)".formatted(username, password);
+            st.execute(query);
+            conn.close();
+        } catch (SQLException e) {
+            //log
+        }
+    }
+
+
+    public void Delete(String username) {
+        try {
+            Connection conn = DataNode.getConnection();
+            Statement st = conn.createStatement();
+            String query = "DELETE FROM users WHERE username = %s".formatted(username);
+            st.execute(query);
+            conn.close();
+        } catch (SQLException e) {
+            //log
+        }
+    }
+    public static Users Login(){
+        Users user = new Users("Valami", "Valami", 1);
+        return user;
+    }
 }

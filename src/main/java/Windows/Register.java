@@ -11,11 +11,11 @@ public class Register extends JDialog{
     private JTextField textField2;
     private JButton registerButton;
     private JButton cancelButton;
-    private JPanel RegisterPanel;
+    private JPanel RegisterP;
 
     public Register(){
         setTitle("Registration");
-        setContentPane(RegisterPanel);
+        setContentPane(RegisterP);
         setMinimumSize(new Dimension(800,500));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         registerButton.addActionListener(new ActionListener() {

@@ -1,5 +1,8 @@
 package Windows;
 
+import Classes.DataNode;
+import Classes.Users;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -29,7 +32,8 @@ public class Login extends JDialog{
         btn_login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //login with dataNode
+                //send to db
+                MainForm.setUser(Users.Login());
             }
         });
     }

@@ -1,5 +1,7 @@
 package Windows;
 
+import Classes.Users;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,6 +13,11 @@ public class MainForm extends JFrame{
     private JList pizza_list;
     private JButton btn_register;
     private JPanel main_panel;
+    private static Users user;
+
+    public static void setUser(Users tempuser){
+        user=tempuser;
+    }
 
 
     public MainForm() {
@@ -19,6 +26,7 @@ public class MainForm extends JFrame{
         setMinimumSize(new Dimension(1024, 800));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
+
         btn_login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
