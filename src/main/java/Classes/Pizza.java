@@ -16,7 +16,7 @@ public class Pizza implements Observable {
 
     protected int diameter;
 
-    //DataNode datanode;
+    DataNode datanode;
 
     private Collection<Observer> observerCollection = new ArrayList<>();
 
