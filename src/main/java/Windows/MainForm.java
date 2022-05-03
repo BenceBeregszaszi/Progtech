@@ -16,7 +16,7 @@ public class MainForm extends JFrame{
     public MainForm() {
         setTitle("Main");
         setContentPane(main_panel);
-        setMinimumSize(new Dimension(1024,800));
+        setMinimumSize(new Dimension(1024, 800));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
         btn_login.addActionListener(new ActionListener() {
@@ -26,13 +26,14 @@ public class MainForm extends JFrame{
                 loginpanel.setVisible(true);
             }
         });
-         btn_register.addActionListener(new ActionListener() {
-             @Override
-             public void actionPerformed(ActionEvent e) {
+        btn_register.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
                 Register registerpanel = new Register();
                 registerpanel.setVisible(true);
             }
         });
+    }
 
     public static void main(String[] args) {
         MainForm mainForm = new MainForm();
