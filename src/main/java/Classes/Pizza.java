@@ -47,7 +47,7 @@ public class Pizza implements Observable {
         try{
             Connection conn = DataNode.getConnection();
             Statement st = conn.createStatement();
-            ResultsSet rs = st.executeQuery("SELECT * FROM pizza");
+            ResultSet rs = st.executeQuery("SELECT * FROM pizza");
             while (rs.next()) {
                 int number = rs.getInt("number");
                 String name = rs.getString("name");
