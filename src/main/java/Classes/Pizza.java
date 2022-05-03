@@ -3,8 +3,13 @@ package Classes;
 import Interfaces.Observable;
 import Interfaces.Observer;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.sql.ResultSet;
 
 public class Pizza implements Observable {
 
@@ -37,16 +42,17 @@ public class Pizza implements Observable {
         }
     }
     
-    public void List<Pizza> Read() {
+    public List<Pizza> Read() {
+        List<Pizza> temp = new ArrayList<>();
         try{
             Connection conn = DataNode.getConnection();
             Statement st = conn.createStatement();
             ResultsSet rs = st.executeQuery("SELECT * FROM pizza");
             while (rs.next()) {
                 int number = rs.getInt("number");
-                String number = rs.getString("name");
-                int number = rs.getInt("price");
-                int number = rs.getInt("diameter");
+                String name = rs.getString("name");
+                int price = rs.getInt("price");
+                int diameter = rs.getInt("diameter");
             }
         }catch(SQLException e) {
             //log
