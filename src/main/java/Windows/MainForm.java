@@ -26,9 +26,12 @@ public class MainForm extends JFrame{
                 loginpanel.setVisible(true);
             }
         });
-    }
-    public String szamit(){
-        return "Hello world";
+         btn_register.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                Register registerpanel = new Register();
+                registerpanel.setVisible(true);
+   }
     }
 
     public static void main(String[] args) {
