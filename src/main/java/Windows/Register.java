@@ -1,5 +1,7 @@
 package Windows;
 
+import Classes.Users;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,8 +9,8 @@ import java.awt.event.ActionListener;
 
 public class Register extends JDialog{
 
-    private JTextField textField1;
-    private JTextField textField2;
+    private JTextField tb_username;
+    private JTextField tb_password;
     private JButton registerButton;
     private JButton cancelButton;
     private JPanel RegisterP;
@@ -21,7 +23,7 @@ public class Register extends JDialog{
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Users.Create(tb_username.getText(), tb_password.getText());
             }
         });
         cancelButton.addActionListener(new ActionListener() {

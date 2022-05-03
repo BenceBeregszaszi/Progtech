@@ -32,12 +32,10 @@ public class Login extends JDialog{
         btn_login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //send to db
-                MainForm.setUser(Users.Login());
+                Users users = Users.Login(tf_username.getText(), tf_password.getText());
+                MainForm.setUser(users);
+                dispose();
             }
         });
-    }
-    public void buildWindow(){
-
     }
 }

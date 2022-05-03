@@ -1,9 +1,8 @@
 package Classes;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.List;
+
 
 public class Users {
 
@@ -45,15 +44,18 @@ public class Users {
 
     private List<Users> usersList;
 
-    public void Create(String username, String password) {
+    public static void Create(String username, String password) {
         try {
             Connection conn = DataNode.getConnection();
-            Statement st = conn.createStatement();
-            String query = "INSERT INTO users VALUES (%s, %s 0)".formatted(username, password);
-            st.execute(query);
+            String query = "INSERT INTO users VALUES (?, ?, 1)";
+            PreparedStatement st = conn.prepareStatement(query);
+            st.setString(1,username);
+            st.setString(2,password);
+            st.execute();
             conn.close();
+            Login(username,password);
         } catch (SQLException e) {
-            //log
+            System.out.println(e.getMessage());
         }
     }
 
@@ -69,8 +71,22 @@ public class Users {
             //log
         }
     }
-    public static Users Login(){
-        Users user = new Users("Valami", "Valami", 1);
+    public static Users Login(String username, String password){
+        Users user = null;
+        try{
+            Connection conn = DataNode.getConnection();
+            String query = "SELECT * FROM users WHERE username=? AND password=?";
+            PreparedStatement st = conn.prepareStatement(query);
+            st.setString(1,username);
+            st.setString(2,password);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                user = new Users(rs.getString("username"), rs.getString("password"), rs.getInt("position_id"));
+            }
+        }catch(SQLException e) {
+            //log
+            System.out.println(e.getMessage());
+        }
         return user;
     }
 }
