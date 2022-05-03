@@ -31,8 +31,8 @@ public class MainForm extends JFrame{
              public void actionPerformed(ActionEvent e) {
                 Register registerpanel = new Register();
                 registerpanel.setVisible(true);
-   }
-    }
+            }
+        });
 
     public static void main(String[] args) {
         MainForm mainForm = new MainForm();
