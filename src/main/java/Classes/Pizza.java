@@ -36,6 +36,23 @@ public class Pizza implements Observable {
             o.update();
         }
     }
+    
+    public void List<Pizza> Read() {
+        try{
+            Connection conn = DataNode.getConnection();
+            Statement st = conn.createStatement();
+            ResultsSet rs = st.executeQuery("SELECT * FROM pizza");
+            while (rs.next()) {
+                int number = rs.getInt("number");
+                String number = rs.getString("name");
+                int number = rs.getInt("price");
+                int number = rs.getInt("diameter");
+            }
+        }catch(SQLException e) {
+            //log
+        }
+        return temp;
+    }
 
     public Pizza GetPizza(){
         return this;
