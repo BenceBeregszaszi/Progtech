@@ -53,4 +53,16 @@ public class Orders {
     }
 
     List<Orders> ordersList;
+
+    public List<Orders> Read(){
+        return null;
+    }
+
+    public void Create(){
+        //log
+    }
+
+    public void Delete(){
+        //log
+    }
 }

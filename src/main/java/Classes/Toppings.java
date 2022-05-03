@@ -1,5 +1,7 @@
 package Classes;
 
+import java.util.List;
+
 public class Toppings {
     public Toppings(int toppings_id, String name, int price){
         setToppings_id(toppings_id);
@@ -35,5 +37,17 @@ public class Toppings {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public List<Toppings> Read(){
+        return null;
+    }
+
+    public void Create(){
+        //log
+    }
+
+    public void Delete(){
+        //log
     }
 }

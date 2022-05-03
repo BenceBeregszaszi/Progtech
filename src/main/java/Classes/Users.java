@@ -55,17 +55,17 @@ public class Users {
             conn.close();
             Login(username,password);
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            //log
         }
     }
-
 
     public void Delete(String username) {
         try {
             Connection conn = DataNode.getConnection();
-            Statement st = conn.createStatement();
-            String query = "DELETE FROM users WHERE username = %s".formatted(username);
-            st.execute(query);
+            String query = "DELETE FROM users WHERE username=?";
+            PreparedStatement st = conn.prepareStatement(query);
+            st.setString(1,username);
+            st.execute();
             conn.close();
         } catch (SQLException e) {
             //log
@@ -85,7 +85,6 @@ public class Users {
             }
         }catch(SQLException e) {
             //log
-            System.out.println(e.getMessage());
         }
         return user;
     }

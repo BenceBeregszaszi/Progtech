@@ -41,4 +41,16 @@ public class Deliveries {
     }
 
     List<Deliveries> deliveriesList;
+
+    public List<Deliveries> Read(){
+        return null;
+    }
+
+    public void Create(){
+        //log
+    }
+
+    public void Delete(){
+        //log
+    }
 }

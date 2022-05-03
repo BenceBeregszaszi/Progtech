@@ -29,4 +29,16 @@ public class Positions {
         this.name = name;
     }
     List<Positions> positionsList;
+
+    public List<Positions> Read(){
+        return null;
+    }
+
+    public void Create(){
+        //log
+    }
+
+    public void Delete(){
+        //log
+    }
 }

@@ -1,11 +1,10 @@
 package Classes;
 
-import Interfaces.Display;
 import Interfaces.Observer;
 
 import java.sql.*;
 
-public class DataNode implements Observer, Display {
+public class DataNode implements Observer {
 
    public static Connection getConnection() throws SQLException {
       String jdbcURL = "jdbc:mysql://localhost:3306/pizza";
@@ -18,11 +17,6 @@ public class DataNode implements Observer, Display {
    @Override
    public void update() {
       //main window lista frissítés
-   }
-   
-   @Override
-   public void display() {
- 
    }
 
 }
