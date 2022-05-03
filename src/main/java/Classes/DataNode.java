@@ -1,10 +1,9 @@
 package Classes;
 
+import Interfaces.Display;
 import Interfaces.Observer;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class DataNode implements Observer, Display {
 
