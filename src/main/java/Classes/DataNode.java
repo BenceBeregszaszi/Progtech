@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataNode implements Observer {
+public class DataNode implements Observer, Display {
 
    public static Connection getConnection() throws SQLException {
       String jdbcURL = "jdbc:mysql://localhost:3306/pizza";
@@ -20,5 +20,11 @@ public class DataNode implements Observer {
    public void update() {
       //main window lista frissítés
    }
+   
+   @Override
+   public void display() {
+ 
+   }
+
 }
 
