@@ -43,7 +43,16 @@ public class MainForm extends JFrame{
                 logged_in.setText(user.getUsername());
             }
         });
+        logoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                user = null;
+                logged_in.setText("");
+            }
+        });
+
     }
+    
 
     public static void main(String[] args) {
         MainForm mainForm = new MainForm();
