@@ -2,6 +2,10 @@ package Classes;
 
 import Interfaces.Observable;
 import Interfaces.Observer;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -11,6 +15,9 @@ import java.util.Collection;
 import java.util.List;
 import java.sql.ResultSet;
 
+@Setter
+@Getter
+@NoArgsConstructor
 public class Pizza implements Observable {
 
     protected int number;
@@ -49,10 +56,12 @@ public class Pizza implements Observable {
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM pizza");
             while (rs.next()) {
-                int number = rs.getInt("number");
-                String name = rs.getString("name");
-                int price = rs.getInt("price");
-                int diameter = rs.getInt("diameter");
+                Pizza temppizza = new Pizza();
+                temppizza.setNumber(rs.getInt("number"));
+                temppizza.setName(rs.getString("name"));
+                temppizza.setPrice(rs.getInt("price"));
+                temppizza.setDiameter(rs.getInt("diameter"));
+                temp.add(temppizza);
             }
         }catch(SQLException e) {
             //log
