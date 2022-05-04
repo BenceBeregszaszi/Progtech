@@ -29,7 +29,6 @@ public class Deliveries {
             st.setString(2,name);
             st.execute();
             conn.close();
-            Login(username,password);
           } catch (SQLException e) {
                //log
           }
