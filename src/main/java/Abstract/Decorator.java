@@ -6,8 +6,12 @@ public abstract class Decorator extends Pizza {
 
    protected Pizza pizza;
 
-   protected abstract String getDescription();
+   protected abstract String getname();
 
-   protected abstract int cost();
+   //protected abstract String getDescription();
+
+   protected abstract int getdiameter();
+
+   protected abstract int getcost();
 
 }

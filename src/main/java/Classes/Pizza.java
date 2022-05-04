@@ -1,5 +1,6 @@
 package Classes;
 
+import Abstract.Decorator;
 import Interfaces.Observable;
 import Interfaces.Observer;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,8 @@ public class Pizza implements Observable {
     protected int diameter;
 
     DataNode datanode;
+
+    Decorator decorator;
 
     private Collection<Observer> observerCollection = new ArrayList<>();
 
