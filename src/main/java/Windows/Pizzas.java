@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Pizzas extends JDialog {
+public class Pizzas extends JDialog{
     private JList list1;
     private JButton btn_confirm;
     private JTextField tb_name;
