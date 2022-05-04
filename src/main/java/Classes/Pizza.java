@@ -3,14 +3,12 @@ package Classes;
 import Abstract.Decorator;
 import Interfaces.Observable;
 import Interfaces.Observer;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -75,5 +73,19 @@ public class Pizza implements Observable {
     public Pizza GetPizza(){
         return this;
     }
-
+    
+    public static void AddPizza(String name, int price, int diameter){
+        try {
+            Connection conn = DataNode.getConnection();
+            String query = "INSERT INTO pizza (name, price, diameter) VALUES (?, ?, ?)";
+            PreparedStatement st = conn.prepareStatement(query);
+            st.setString(1,name);
+            st.setInt(2,price);
+            st.setInt(3,diameter);
+            st.execute();
+            conn.close();
+         } catch (SQLException e) {
+             e.printStackTrace();
+         }
+    }
 }
