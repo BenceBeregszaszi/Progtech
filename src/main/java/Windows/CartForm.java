@@ -1,9 +1,13 @@
 package Windows;
 
+import Abstract.Decorator;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CartForm extends JDialog{
     private JList list1;
@@ -28,7 +32,7 @@ public class CartForm extends JDialog{
         btn_delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                decorators.remove();
+                //decorators.remove();
             }
         });
         btn_cancel.addActionListener(new ActionListener() {
