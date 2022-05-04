@@ -7,11 +7,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Delivery {
+public class Delivery extends JDialog{
     private JList list1;
     private JButton btn_confirm;
     private JTextField tb_location;
     private JTextField tb_name;
+    private JPanel delivery_panel;
     
     public Delivery() {
         setTitle("Delivery");
