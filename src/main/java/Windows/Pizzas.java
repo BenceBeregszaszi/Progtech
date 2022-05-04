@@ -13,7 +13,8 @@ public class Pizzas extends JDialog {
     private JTextField tb_name;
     private JTextField tb_price;
     private JTextField tb_diameter;
-    
+    private JPanel pizzas_panel;
+
     public Pizzas() {
         setTitle("Pizzas");
         setContentPane(pizzas_panel);
