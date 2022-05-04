@@ -18,22 +18,23 @@ public class CartForm extends JDialog{
         setMinimumSize(new Dimension(1024, 800));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
+        List<Decorator> decorators = new ArrayList<>();
         btn_confirm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                
             }
         });
         btn_delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                decorators.remove();
             }
         });
         btn_cancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                dispose();
             }
         });
     }
