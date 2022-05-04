@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.*;
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -18,8 +20,19 @@ public class Deliveries {
     String name;
 
 
-    public void Create(){
-        //log
+    public static void Create(String location, String name){
+        try {
+            Connection conn = DataNode.getConnection();
+            String query = "INSERT INTO delivery VALUES (?, ?)";
+            PreparedStatement st = conn.prepareStatement(query);
+            st.setString(1,location);
+            st.setString(2,name);
+            st.execute();
+            conn.close();
+            Login(username,password);
+          } catch (SQLException e) {
+               //log
+          }
     }
 
     public void Delete(){
