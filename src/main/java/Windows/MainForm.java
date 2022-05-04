@@ -59,31 +59,36 @@ public class MainForm extends JFrame{
         btn_cart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                CartForm cart = new CartForm();
+                cart.setVisible(true);
             }
         });
         btn_orders.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                OrdersForm orders = new OrdersForm();
+                orders.setVisible(true);
             }
         });
         btn_delivery.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Delivery delivery = new Delivery();
+                delivery.setVisible(true);
             }
         });
         btn_toppings.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Toppings toppings = new Toppings();
+                toppings.setVisible(true);
             }
         });
         btn_pizzas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Pizzas pizzas = new Pizzas();
+                pizzas.setVisible(true);
             }
         });
     }
