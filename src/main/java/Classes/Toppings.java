@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
+import java.sql.*;
 
 @Getter
 @Setter
@@ -26,7 +26,7 @@ public class Toppings {
             String query = "INSERT INTO toppings VALUES (?, ?)";
             PreparedStatement st = conn.prepareStatement(query);
             st.setString(1,name);
-            st.setString(2,price);
+            st.setInt(2,price);
             st.execute();
             conn.close();
             //log
