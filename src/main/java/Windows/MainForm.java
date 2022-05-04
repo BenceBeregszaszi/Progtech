@@ -15,6 +15,11 @@ public class MainForm extends JFrame{
     private JPanel main_panel;
     public JLabel logged_in;
     private JButton logoutButton;
+    private JButton btn_cart;
+    private JButton btn_orders;
+    private JButton btn_delivery;
+    private JButton btn_toppings;
+    private JButton btn_pizzas;
     private static Users user;
 
     public static void setUser(Users tempuser){
