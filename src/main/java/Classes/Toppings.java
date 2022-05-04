@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
 
 
 @Getter
@@ -21,8 +20,19 @@ public class Toppings {
     int price;
 
 
-    public void Create(){
-        //log
+    public static void Create(String name, int price){
+        try {
+            Connection conn = DataNode.getConnection();
+            String query = "INSERT INTO toppings VALUES (?, ?)";
+            PreparedStatement st = conn.prepareStatement(query);
+            st.setString(1,name);
+            st.setString(2,price);
+            st.execute();
+            conn.close();
+            //log
+        } catch (SQLException e) {
+            //log
+        }
     }
 
     public void Delete(){
