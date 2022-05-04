@@ -26,7 +26,7 @@ public class OrdersForm  extends JDialog{
         btn_cancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                dispose();
             }
         });
     }
