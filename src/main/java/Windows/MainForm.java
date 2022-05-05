@@ -1,15 +1,15 @@
 package Windows;
 
 import Classes.Pizza;
+import Classes.Toppings;
 import Classes.Users;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class MainForm extends JFrame{
 
@@ -24,6 +24,10 @@ public class MainForm extends JFrame{
     private JButton btn_delivery;
     private JButton btn_toppings;
     private JButton btn_pizzas;
+    private JTextField tb_selected_pizza;
+    private JButton btn_rendel;
+    private JComboBox cb_topping1;
+    private JComboBox cb_topping2;
     private Users user;
 
     private void setEnable(){
@@ -56,8 +60,11 @@ public class MainForm extends JFrame{
         setMinimumSize(new Dimension(1024, 800));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
-        Pizza[] array = Pizza.GetPizza();
-        pizza_list.setModel(new DefaultComboBoxModel(array));
+        Pizza[] pizza_array = Pizza.GetPizza();
+        pizza_list.setModel(new DefaultComboBoxModel(pizza_array));
+        Toppings[] toppings_array = Toppings.getToppings();
+        cb_topping1.setModel(new DefaultComboBoxModel<>(toppings_array));
+        cb_topping2.setModel(new DefaultComboBoxModel<>(toppings_array));
         if (this.user != null){
             setEnable();
         }
@@ -78,6 +85,7 @@ public class MainForm extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 Register registerpanel = new Register();
                 registerpanel.setVisible(true);
+                dispose();
             }
         });
         logoutButton.addActionListener(new ActionListener() {
@@ -112,7 +120,7 @@ public class MainForm extends JFrame{
         btn_toppings.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Toppings toppings = new Toppings();
+                ToppingsForm toppings = new ToppingsForm();
                 toppings.setVisible(true);
             }
         });
@@ -121,6 +129,18 @@ public class MainForm extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 Pizzas pizzas = new Pizzas();
                 pizzas.setVisible(true);
+            }
+        });
+        pizza_list.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                tb_selected_pizza.setText(pizza_list.getSelectedValue().toString());
+            }
+        });
+        btn_rendel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //
             }
         });
     }
