@@ -3,7 +3,7 @@ package Classes.Decorators;
 import Abstract.Decorator;
 import Classes.Pizza;
 
-public class Corn  extends Decorator {
+public class Corn extends Decorator {
 
     Pizza pizza;
 

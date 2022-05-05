@@ -27,6 +27,7 @@ public class Login extends JDialog{
             @Override
             public void actionPerformed(ActionEvent e) {
                 MainForm main = new MainForm(null);
+                main.setVisible(true);
                 dispose();
             }
         });
