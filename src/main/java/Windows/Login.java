@@ -26,15 +26,22 @@ public class Login extends JDialog{
         btn_cancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                MainForm main = new MainForm(null);
                 dispose();
             }
         });
         btn_login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Users users = Users.Login(tf_username.getText(), tf_password.getText());
-                MainForm.setUser(users);
-                dispose();
+                try {
+                    Users users = Users.Login(tf_username.getText(), tf_password.getText());
+                    MainForm main = new MainForm(users);
+                    main.setVisible(true);
+                    dispose();
+                }catch (Exception ex){
+                    JOptionPane.showMessageDialog(login,"Nem megfelelő felhasználónév vagy jelszó");
+                }
+
             }
         });
     }

@@ -65,12 +65,14 @@ public class Users {
             st.setString(1,username);
             st.setString(2,password);
             ResultSet rs = st.executeQuery();
-            conn.close();
+
             while (rs.next()) {
                 user = new Users(rs.getString("username"), rs.getString("password"), rs.getInt("position_id"));
             }
+            conn.close();
         }catch(SQLException e) {
             //log
+            System.out.println(e.getMessage());
         }
         return user;
     }
