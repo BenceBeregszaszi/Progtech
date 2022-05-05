@@ -32,16 +32,16 @@ public class Users {
     public static void Create(String username, String password) {
         try {
             Connection conn = DataNode.getConnection();
-            String query = "INSERT INTO users VALUES (?, ?, 1)";
+            String query = "INSERT INTO users(username, password, position_id) VALUES (?, ?, 2)";
             PreparedStatement st = conn.prepareStatement(query);
             st.setString(1,username);
             st.setString(2,password);
             st.execute();
             conn.close();
-            Login(username,password);
         } catch (SQLException e) {
             //log
         }
+        //log
     }
 
     public void Delete(String username) {
@@ -55,6 +55,7 @@ public class Users {
         } catch (SQLException e) {
             //log
         }
+        //log
     }
     public static Users Login(String username, String password){
         Users user = null;
@@ -65,15 +66,14 @@ public class Users {
             st.setString(1,username);
             st.setString(2,password);
             ResultSet rs = st.executeQuery();
-
             while (rs.next()) {
                 user = new Users(rs.getString("username"), rs.getString("password"), rs.getInt("position_id"));
             }
             conn.close();
         }catch(SQLException e) {
             //log
-            System.out.println(e.getMessage());
         }
+        //log
         return user;
     }
 }

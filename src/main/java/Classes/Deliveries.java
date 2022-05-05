@@ -23,7 +23,7 @@ public class Deliveries {
     public static void Create(String location, String name){
         try {
             Connection conn = DataNode.getConnection();
-            String query = "INSERT INTO delivery VALUES (?, ?)";
+            String query = "INSERT INTO delivery(location, name) VALUES (?, ?)";
             PreparedStatement st = conn.prepareStatement(query);
             st.setString(1,location);
             st.setString(2,name);
@@ -32,6 +32,7 @@ public class Deliveries {
           } catch (SQLException e) {
                //log
           }
+        //log
     }
 
     public void Delete(){

@@ -38,6 +38,7 @@ public class Pizza implements Observable {
         this.setName(name);
         this.setPrice(price);
         this.setDiameter(diameter);
+        //log
     }
 
     @Override
@@ -56,26 +57,6 @@ public class Pizza implements Observable {
             o.update();
         }
     }
-    
-    public List<Pizza> Read() {
-        List<Pizza> temp = new ArrayList<>();
-        try{
-            Connection conn = DataNode.getConnection();
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM pizza");
-            while (rs.next()) {
-                Pizza temppizza = new Pizza();
-                temppizza.setNumber(rs.getInt("number"));
-                temppizza.setName(rs.getString("name"));
-                temppizza.setPrice(rs.getInt("price"));
-                temppizza.setDiameter(rs.getInt("diameter"));
-                temp.add(temppizza);
-            }
-        }catch(SQLException e) {
-            //log
-        }
-        return temp;
-    }
 
     public static Pizza[] GetPizza(){
         Pizza[] temp = null;
@@ -93,10 +74,10 @@ public class Pizza implements Observable {
             temp = new Pizza[helper.size()];
             helper.toArray(temp);
         } catch (SQLException e) {
-            e.printStackTrace();
+            //log
         }
         catch (Exception ex){
-            System.out.println(ex.getMessage());
+            //log
         }
         return temp;
     }
@@ -112,7 +93,7 @@ public class Pizza implements Observable {
             st.execute();
             conn.close();
          } catch (SQLException e) {
-             e.printStackTrace();
+            //log + window
          }
     }
 
