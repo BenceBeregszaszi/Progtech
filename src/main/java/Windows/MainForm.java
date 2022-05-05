@@ -1,11 +1,15 @@
 package Windows;
 
+import Classes.Pizza;
 import Classes.Users;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainForm extends JFrame{
 
@@ -13,32 +17,60 @@ public class MainForm extends JFrame{
     private JList pizza_list;
     private JButton btn_register;
     private JPanel main_panel;
-    public JLabel logged_in;
+    private JLabel logged_in;
     private JButton logoutButton;
     private JButton btn_cart;
     private JButton btn_orders;
     private JButton btn_delivery;
     private JButton btn_toppings;
     private JButton btn_pizzas;
-    private static Users user;
+    private Users user;
 
-    public static void setUser(Users tempuser){
-        user=tempuser;
+    private void setEnable(){
+        logged_in.setText(this.user.getUsername());
+        btn_cart.setVisible(true);
+        logoutButton.setVisible(true);
+        btn_orders.setVisible(true);
+        btn_delivery.setVisible(true);
+        btn_toppings.setVisible(true);
+        btn_pizzas.setVisible(true);
+        btn_login.setVisible(false);
+        btn_register.setVisible(false);
+    }
+    private void setDisabled(){
+        btn_cart.setVisible(false);
+        logoutButton.setVisible(false);
+        btn_orders.setVisible(false);
+        btn_delivery.setVisible(false);
+        btn_toppings.setVisible(false);
+        btn_pizzas.setVisible(false);
+        btn_login.setVisible(true);
+        btn_register.setVisible(true);
     }
 
 
-    public MainForm() {
+    public MainForm(Users users) {
+        this.user = users;
         setTitle("Main");
         setContentPane(main_panel);
         setMinimumSize(new Dimension(1024, 800));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
+        Pizza[] array = Pizza.GetPizza();
+        pizza_list.setModel(new DefaultComboBoxModel(array));
+        if (this.user != null){
+            setEnable();
+        }
+        else{
+            setDisabled();
+        }
 
         btn_login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Login loginpanel = new Login();
                 loginpanel.setVisible(true);
+                dispose();
             }
         });
         btn_register.addActionListener(new ActionListener() {
@@ -46,12 +78,12 @@ public class MainForm extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 Register registerpanel = new Register();
                 registerpanel.setVisible(true);
-                logged_in.setText(user.getUsername());
             }
         });
         logoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                setDisabled();
                 user = null;
                 logged_in.setText("");
             }
@@ -95,6 +127,6 @@ public class MainForm extends JFrame{
     
 
     public static void main(String[] args) {
-        MainForm mainForm = new MainForm();
+        MainForm mainForm = new MainForm(null);
     }
 }

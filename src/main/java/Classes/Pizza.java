@@ -33,6 +33,13 @@ public class Pizza implements Observable {
 
     private Collection<Observer> observerCollection = new ArrayList<>();
 
+    public Pizza(int number, String name, int price, int diameter) {
+        this.setNumber(number);
+        this.setName(name);
+        this.setPrice(price);
+        this.setDiameter(diameter);
+    }
+
     @Override
     public void Add(Observer observer) {
         this.observerCollection.add(observer);
@@ -70,8 +77,28 @@ public class Pizza implements Observable {
         return temp;
     }
 
-    public Pizza GetPizza(){
-        return this;
+    public static Pizza[] GetPizza(){
+        Pizza[] temp = null;
+        try {
+            List<Pizza> helper = new ArrayList<>();
+            Connection conn = DataNode.getConnection();
+            String query = "SELECT * FROM pizza";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()) {
+                Pizza actual = new Pizza(rs.getInt("number"),rs.getString("name"), rs.getInt("price"), rs.getInt("diameter"));
+                helper.add(actual);
+            }
+            conn.close();
+            temp = new Pizza[helper.size()];
+            helper.toArray(temp);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return temp;
     }
     
     public static void AddPizza(String name, int price, int diameter){
@@ -87,5 +114,10 @@ public class Pizza implements Observable {
          } catch (SQLException e) {
              e.printStackTrace();
          }
+    }
+
+    @Override
+    public String toString() {
+        return number + " " + name + " " + name + " " + price + " Ft " + " " + diameter + " cm ";
     }
 }
