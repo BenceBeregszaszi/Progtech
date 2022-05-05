@@ -24,6 +24,9 @@ public class Register extends JDialog{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Users.Create(tb_username.getText(), tb_password.getText());
+                MainForm main = new MainForm(Users.Login(tb_username.getText(), tb_password.getText()));
+                main.setVisible(true);
+                dispose();
             }
         });
         cancelButton.addActionListener(new ActionListener() {
