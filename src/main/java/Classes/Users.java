@@ -72,6 +72,7 @@ public class Users {
             conn.close();
         }catch(SQLException e) {
             //log
+            return null;
         }
         //log
         return user;

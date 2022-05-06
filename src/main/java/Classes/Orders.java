@@ -18,7 +18,6 @@ public class Orders {
         this.setPizza_id(pizza_id);
         this.setTopping_id(topping_id);
         this.setDelivery_id(delivery_id);
-        //log
     }
 
 
@@ -39,6 +38,10 @@ public class Orders {
 
 
     public void Delete(){
+        //log
+    }
+
+    public void Add(){
         //log
     }
 }

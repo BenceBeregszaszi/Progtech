@@ -19,9 +19,6 @@ public class DataNode implements Observer {
       //main window lista frissítés
    }
 
-   public void Log(){
-
-   }
 
 }
 

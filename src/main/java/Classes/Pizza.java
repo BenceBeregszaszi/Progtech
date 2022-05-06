@@ -38,7 +38,6 @@ public class Pizza implements Observable {
         this.setName(name);
         this.setPrice(price);
         this.setDiameter(diameter);
-        //log
     }
 
     @Override
