@@ -45,18 +45,18 @@ public class LoggerClass {
         System.out.println("New topping with" + name + price + "Ft");
     }
 
-    public static void LoginLog(){
-        usersLogger.info("User logged in");
-        System.out.println("User logged in");
+    public static void LoginLog(String name){
+        usersLogger.info("User" + name + "logged in");
+        System.out.println("User" + name + "logged in");
     }
 
-    public static void RegisterLog(){
-        usersLogger.info("User registered");
-        System.out.println("User registered");
+    public static void RegisterLog(String name){
+        usersLogger.info("New user" + username);
+        System.out.println("New user" + username);
     }
 
-    public static void LogoutLog(){
-        usersLogger.info("User logged out");
-        System.out.println("User logged out");
+    public static void LogoutLog(String name){
+        usersLogger.info("User" + name + "logged out");
+        System.out.println("User" + name + "logged out");
     }
 }
