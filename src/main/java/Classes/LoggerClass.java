@@ -40,9 +40,9 @@ public class LoggerClass {
         System.out.println("New pizza created with " + name + price + "Ft" + diameter + "cm");
     }
 
-    public static void CreateToppingsLog() {
-        toppingsLogger.info("New topping");
-        System.out.println("New toppings with");
+    public static void CreateToppingsLog(String name, int price) {
+        toppingsLogger.info("New topping with" + name + price + "Ft");
+        System.out.println("New topping with" + name + price + "Ft");
     }
 
     public static void LoginLog(){
