@@ -51,8 +51,8 @@ public class LoggerClass {
     }
 
     public static void RegisterLog(String name){
-        usersLogger.info("New user" + username);
-        System.out.println("New user" + username);
+        usersLogger.info("New user" + name);
+        System.out.println("New user" + name);
     }
 
     public static void LogoutLog(String name){
