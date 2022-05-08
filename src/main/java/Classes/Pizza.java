@@ -73,10 +73,10 @@ public class Pizza implements Observable {
             temp = new Pizza[helper.size()];
             helper.toArray(temp);
         } catch (SQLException e) {
-            //log
+            LoggerClass.ExceptionLog(e.getMessage());
         }
         catch (Exception ex){
-            //log
+            LoggerClass.ExceptionLog(ex.getMessage());
         }
         return temp;
     }
@@ -92,8 +92,9 @@ public class Pizza implements Observable {
             st.execute();
             conn.close();
          } catch (SQLException e) {
-            //log + window
+            LoggerClass.ExceptionLog(e.getMessage());
          }
+        LoggerClass.PizzaCreateLog(name, price, diameter);
     }
 
     @Override
