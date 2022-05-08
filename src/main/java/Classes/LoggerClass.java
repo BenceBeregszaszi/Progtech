@@ -35,9 +35,9 @@ public class LoggerClass {
         System.out.println("Order with");
     }
 
-    public static void PizzaCreateLog() {
-        pizzaLogger.info("New pizza");
-        System.out.println("New pizza with");
+    public static void PizzaCreateLog(String name, int price, int diameter) {
+        pizzaLogger.info("New pizza created with " + name + price + "Ft" + diameter + "cm");
+        System.out.println("New pizza created with " + name + price + "Ft" + diameter + "cm");
     }
 
     public static void CreateToppingsLog() {
