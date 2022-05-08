@@ -37,10 +37,10 @@ public class Toppings {
             temp = new Toppings[helper.size()];
             helper.toArray(temp);
         } catch (SQLException e) {
-            //log
+            LoggerClass.ExceptionLog(e.getMessage());
         }
         catch (Exception ex){
-            //log
+            LoggerClass.ExceptionLog(ex.getMessage());
         }
         return temp;
     }
