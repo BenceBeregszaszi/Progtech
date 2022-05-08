@@ -30,12 +30,12 @@ public class Deliveries {
             st.execute();
             conn.close();
           } catch (SQLException e) {
-               //log
+               LoggerClass.ExceptionLog(e.getMessage());
           }
-        //log
+        LoggerClass.DeliveriesCreateLog(location, name);
     }
 
-    public void Delete(){
-        //log
+    public void Delete(int id,  String name){
+        LoggerClass.DeliveriesDeleteLog(name);
     }
 }
