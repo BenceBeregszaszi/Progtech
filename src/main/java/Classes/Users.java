@@ -39,24 +39,11 @@ public class Users {
             st.execute();
             conn.close();
         } catch (SQLException e) {
-            //log
+            LoggerClass.ExceptionLog(e.getMessage());
         }
-        //log
+        LoggerClass.RegisterLog(username);
     }
 
-    public void Delete(String username) {
-        try {
-            Connection conn = DataNode.getConnection();
-            String query = "DELETE FROM users WHERE username=?";
-            PreparedStatement st = conn.prepareStatement(query);
-            st.setString(1,username);
-            st.execute();
-            conn.close();
-        } catch (SQLException e) {
-            //log
-        }
-        //log
-    }
     public static Users Login(String username, String password){
         Users user = null;
         try{
@@ -71,10 +58,10 @@ public class Users {
             }
             conn.close();
         }catch(SQLException e) {
-            //log
+            LoggerClass.ExceptionLog(e.getMessage());
             return null;
         }
-        //log
+        LoggerClass.LoginLog(username);
         return user;
     }
 }
