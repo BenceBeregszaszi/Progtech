@@ -55,11 +55,10 @@ public class Toppings {
             st.setInt(2,price);
             st.execute();
             conn.close();
-            //log
         } catch (SQLException e) {
-            //log
+            LoggerClass.ExceptionLog(e.getMessage());
         }
-        //log
+        LoggerClass.CreateToppingsLog(name, price);
     }
 
     @Override
