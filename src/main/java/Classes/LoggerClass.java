@@ -21,7 +21,7 @@ public class LoggerClass {
     }
 
     public static void ExceptionLog(String exceptionMessage) {
-        exceptionLogger.info(exceptionMessage);
+        exceptionLogger.error(exceptionMessage);
         System.out.println(exceptionMessage);
     }
 
@@ -46,17 +46,17 @@ public class LoggerClass {
     }
 
     public static void LoginLog(String name){
-        usersLogger.info("User" + name + "logged in");
-        System.out.println("User" + name + "logged in");
+        usersLogger.info("User " + name + " logged in");
+        System.out.println("User " + name + " logged in");
     }
 
     public static void RegisterLog(String name){
-        usersLogger.info("New user" + name);
-        System.out.println("New user" + name);
+        usersLogger.info("New user " + name);
+        System.out.println("New user " + name);
     }
 
     public static void LogoutLog(String name){
-        usersLogger.info("User" + name + "logged out");
-        System.out.println("User" + name + "logged out");
+        usersLogger.info("User " + name + " logged out");
+        System.out.println("User " + name + " logged out");
     }
 }
