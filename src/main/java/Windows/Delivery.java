@@ -20,6 +20,8 @@ public class Delivery extends JDialog{
         setMinimumSize(new Dimension(1024, 800));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
+        Deliveries[] deliveries_list = Deliveries.GetDeliveries();
+        list1.setModel(new DefaultComboBoxModel(deliveries_list));
         btn_confirm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
