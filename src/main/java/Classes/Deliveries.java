@@ -7,6 +7,9 @@ import lombok.Setter;
 
 import java.sql.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -37,5 +40,30 @@ public class Deliveries {
 
     public void Delete(int id,  String name){
         LoggerClass.DeliveriesDeleteLog(name);
+    }
+    public static Deliveries[] GetDeliveries() {
+      Deliveries[] temp = null;
+      try {
+       List<Deliveries> helper = new ArrayList<>();
+       Connection conn = DataNode.getConnection();
+       String query = "SELECT * FROM delivery";
+       Statement st = conn.createStatement();
+       ResultSet rs = st.executeQuery(query);
+       while (rs.next()) {
+           Deliveries actual = new Deliveries(rs.getInt("delivery_id"), rs.getString("location"), rs.getString("name"));
+           helper.add(actual);
+       }
+       conn.close();
+       temp = new Deliveries[helper.size()];
+       helper.toArray(temp);
+     } catch (SQLException e) {
+       LoggerClass.ExceptionLog(e.getMessage());
+   }
+   return temp;
+}
+
+    @Override
+    public String toString() {
+        return getLocation() +" - "+ getName();
     }
 }
