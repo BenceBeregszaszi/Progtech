@@ -88,7 +88,7 @@ Fejlesztő eszközök:
 
 ##  8. Adatbázis terv
 
-![Adatbázis terv](https://imgur.com/fPGQ3Cb.png)
+![Adatbázis terv](https://imgur.com/azPbQ3H.png)
 
 ## 9. Implementációs terv
 Az alkalmazás Java nyelven készül. 
