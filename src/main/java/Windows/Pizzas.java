@@ -21,6 +21,8 @@ public class Pizzas extends JDialog{
         setMinimumSize(new Dimension(1024, 800));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
+        Pizza[] pizza_array = Pizza.GetPizza();
+        list1.setModel(new DefaultComboBoxModel(pizza_array));
         btn_confirm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
