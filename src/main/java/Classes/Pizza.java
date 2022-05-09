@@ -99,6 +99,6 @@ public class Pizza implements Observable {
 
     @Override
     public String toString() {
-        return number + " " + name + " " + name + " " + price + " Ft " + " " + diameter + " cm ";
+        return number + " "  + name + " " + price + " Ft " + " " + diameter + " cm ";
     }
 }
