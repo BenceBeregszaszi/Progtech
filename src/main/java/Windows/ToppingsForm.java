@@ -20,6 +20,8 @@ public class ToppingsForm extends JDialog{
         setMinimumSize(new Dimension(1024, 800));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
+        Toppings[] toppings_array = Toppings.getToppings();
+        list1.setModel(new DefaultComboBoxModel(toppings_array));
         btn_confirm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
