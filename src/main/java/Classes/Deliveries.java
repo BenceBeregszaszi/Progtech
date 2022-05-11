@@ -38,10 +38,20 @@ public class Deliveries {
         LoggerClass.DeliveriesCreateLog(location, name);
     }
 
-    public void Delete(int id,  String name){
+    public static void Delete(String name){
+        try {
+            Connection conn = DataNode.getConnection();
+            String query = "DELETE FROM delivery WHERE name = ?";
+            PreparedStatement st = conn.prepareStatement(query);
+            st.setString(1,name);
+            st.execute();
+            conn.close();
+        } catch (Exception e) {
+            LoggerClass.ExceptionLog(e.getMessage());
+        }
         LoggerClass.DeliveriesDeleteLog(name);
     }
-    public static Deliveries[] GetDeliveries() {
+    public static Deliveries[] ReadDeliveries() {
       Deliveries[] temp = null;
       try {
        List<Deliveries> helper = new ArrayList<>();
@@ -64,6 +74,6 @@ public class Deliveries {
 
     @Override
     public String toString() {
-        return getLocation() +" - "+ getName();
+        return getLocation() +"-"+ getName();
     }
 }

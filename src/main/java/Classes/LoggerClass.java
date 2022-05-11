@@ -30,19 +30,19 @@ public class LoggerClass {
         System.out.println("New order with");
     }
 
-    public static void OrdersDeleteLog() {
-        ordersLogger.info("Order deleted");
-        System.out.println("Order with");
+    public static void OrdersDeleteLog(int id) {
+        ordersLogger.info("Order with " + id + " deleted");
+        System.out.println("Order with " + id + " deleted");
     }
 
     public static void PizzaCreateLog(String name, int price, int diameter) {
-        pizzaLogger.info("New pizza created with " + name + price + "Ft" + diameter + "cm");
-        System.out.println("New pizza created with " + name + price + "Ft" + diameter + "cm");
+        pizzaLogger.info("New pizza created with " + name + price + " Ft" + diameter + " cm");
+        System.out.println("New pizza created with " + name + price + " Ft" + diameter + " cm");
     }
 
     public static void CreateToppingsLog(String name, int price) {
-        toppingsLogger.info("New topping with" + name + price + "Ft");
-        System.out.println("New topping with" + name + price + "Ft");
+        toppingsLogger.info("New topping with" + name + price + " Ft");
+        System.out.println("New topping with" + name + price + " Ft");
     }
 
     public static void LoginLog(String name){

@@ -4,10 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,13 +13,16 @@ import java.util.List;
 @Getter
 public class Orders {
     
-    public Orders( String pizzaName, String toppingName, String delivery_name, String username, int fullPrice) {
+    public Orders(int order_id, String pizzaName, String toppingName, String delivery_name, String username, int fullPrice) {
+        this.setOrder_id(order_id);
         this.setPizzaName(pizzaName);
         this.setToppingName(toppingName);
         this.setDelivery_name(delivery_name);
         this.setUsername(username);
         this.setFullPrice(fullPrice);
     }
+
+    int order_id;
 
     String pizzaName;
 
@@ -34,12 +34,12 @@ public class Orders {
 
     int fullPrice;
 
-    public static Orders[] Read(){
+    public static Orders[] ReadOrders(){
         Orders[] temp = null;
         try {
             List<Orders> helper = new ArrayList<>();
             Connection conn = DataNode.getConnection();
-            String query = "select p.name as pizzaName,t.name as toppingName,d.name as deliveryName, u.username as userName, p.price+t.price as fullPrice from orders\n" +
+            String query = "select order_id as orderId,  p.name as pizzaName,t.name as toppingName,d.name as deliveryName, u.username as userName, p.price+t.price as fullPrice from orders\n" +
                "inner join pizza p on orders.pizza_id = p.number\n" +
                "inner join toppings t on orders.topping_id = t.toppings_id\n" +
                "inner join delivery d on orders.delivery_id = d.delivery_id\n" +
@@ -47,7 +47,7 @@ public class Orders {
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
             while (rs.next()) {
-                Orders actual = new Orders(rs.getString("pizzaName"), rs.getString("toppingName"), rs.getString("deliveryName"), rs.getString("userName"), rs.getInt("fullPrice"));
+                Orders actual = new Orders(rs.getInt("orderId"), rs.getString("pizzaName"), rs.getString("toppingName"), rs.getString("deliveryName"), rs.getString("userName"), rs.getInt("fullPrice"));
                 helper.add(actual);
             }
             conn.close();
@@ -62,8 +62,18 @@ public class Orders {
 
 
 
-    public void Delete(){
-        //log
+    public static void Delete(int order_id){
+        try {
+            Connection conn = DataNode.getConnection();
+            String query = "DELETE FROM orders WHERE order_id = ?";
+            PreparedStatement st = conn.prepareStatement(query);
+            st.setInt(1,order_id);
+            st.execute();
+            conn.close();
+        } catch (Exception e) {
+            LoggerClass.ExceptionLog(e.getMessage());
+        }
+        LoggerClass.OrdersDeleteLog(order_id);
     }
 
     public void Add(){
@@ -72,7 +82,7 @@ public class Orders {
     
     @Override
     public String toString() {
-        return getPizzaName() + " " + getToppingName() + " " + getDelivery_name() + " " + getUsername() + " " + getFullPrice() + " Ft";
+        return getOrder_id() + " " + getPizzaName() + " " + getToppingName() + " " + getDelivery_name() + " " + getUsername() + " " + getFullPrice() + " Ft";
     }
 
 }
