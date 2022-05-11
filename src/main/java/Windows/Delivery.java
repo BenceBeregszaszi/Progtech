@@ -22,7 +22,7 @@ public class Delivery extends JDialog{
         setContentPane(delivery_panel);
         setMinimumSize(new Dimension(1024, 800));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        Deliveries[] deliveries_list = Deliveries.ReadDeliveries();
+        Deliveries[] deliveries_list = Deliveries.Read();
         list1.setModel(new DefaultComboBoxModel(deliveries_list));
         setVisible(true);
         btn_confirm.addActionListener(new ActionListener() {

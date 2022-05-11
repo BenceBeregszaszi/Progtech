@@ -51,7 +51,7 @@ public class Deliveries {
         }
         LoggerClass.DeliveriesDeleteLog(name);
     }
-    public static Deliveries[] ReadDeliveries() {
+    public static Deliveries[] Read() {
       Deliveries[] temp = null;
       try {
        List<Deliveries> helper = new ArrayList<>();
