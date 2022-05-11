@@ -1,5 +1,6 @@
 package Windows;
 
+import Classes.LoggerClass;
 import Classes.Pizza;
 import Classes.Toppings;
 import Classes.Users;
@@ -91,6 +92,7 @@ public class MainForm extends JFrame{
         logoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                LoggerClass.LogoutLog(user.getUsername());
                 setDisabled();
                 user = null;
                 logged_in.setText("");

@@ -18,13 +18,16 @@ public class OrdersForm  extends JDialog{
         setContentPane(orders_panel);
         setMinimumSize(new Dimension(1024, 800));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        Orders[] orders = Orders.Read();
+        Orders[] orders = Orders.ReadOrders();
         list1.setModel(new DefaultComboBoxModel(orders));
         setVisible(true);
         btn_delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                String order = list1.getSelectedValue().toString();
+                String id = order.split(" ")[0];
+                int orderd_id = Integer.parseInt(id);
+                Orders.Delete(orderd_id);
             }
         });
         btn_cancel.addActionListener(new ActionListener() {
