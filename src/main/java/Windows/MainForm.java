@@ -59,12 +59,12 @@ public class MainForm extends JFrame{
         setContentPane(main_panel);
         setMinimumSize(new Dimension(1024, 800));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setVisible(true);
         Pizza[] pizza_array = Pizza.GetPizza();
         pizza_list.setModel(new DefaultComboBoxModel(pizza_array));
         Toppings[] toppings_array = Toppings.getToppings();
         cb_topping1.setModel(new DefaultComboBoxModel<>(toppings_array));
         cb_topping2.setModel(new DefaultComboBoxModel<>(toppings_array));
+        setVisible(true);
         if (this.user != null){
             setEnable();
         }
