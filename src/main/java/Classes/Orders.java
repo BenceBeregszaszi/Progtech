@@ -34,7 +34,7 @@ public class Orders {
 
     int fullPrice;
 
-    public static Orders[] ReadOrders(){
+    public static Orders[] Read(){
         Orders[] temp = null;
         try {
             List<Orders> helper = new ArrayList<>();

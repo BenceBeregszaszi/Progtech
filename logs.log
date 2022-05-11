@@ -1,4 +1,9 @@
 2022-05-06 13:06:05 INFO  Deliveries:14 - Delivery created with Túrkeve location and Speed KFt name
   2022-05-06 13:11:28 INFO  Exception:18 - Parameter index out of range (2 > number of parameters, which is 1).
   2022-05-06 13:12:24 INFO  Exception:18 - Parameter index out of range (2 > number of parameters, which is 1).
+  2022-05-11 15:03:02 INFO  Users:54 - New userBence
+  2022-05-11 15:03:02 INFO  Users:49 - UserBencelogged in
+  2022-05-11 15:03:45 INFO  Users:49 - UserBencelogged in
+  2022-05-11 15:04:53 INFO  Users:49 - UserBencelogged in
+  2022-05-11 15:11:03 INFO  Users:49 - User admin logged in
   

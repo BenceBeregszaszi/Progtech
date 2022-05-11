@@ -18,8 +18,8 @@ public class OrdersForm  extends JDialog{
         setContentPane(orders_panel);
         setMinimumSize(new Dimension(1024, 800));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        Orders[] orders = Orders.ReadOrders();
-        list1.setModel(new DefaultComboBoxModel(orders));
+        Orders[] orders_list = Orders.Read();
+        list1.setModel(new DefaultComboBoxModel(orders_list));
         setVisible(true);
         btn_delete.addActionListener(new ActionListener() {
             @Override
