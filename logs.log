@@ -55,4 +55,7 @@
   2022-05-19 14:43:36 ERROR Exception:24 - Cannot invoke "java.sql.ResultSet.getInt(String)" because "rs" is null
   2022-05-19 14:44:44 INFO  Users:49 - User bence logged in
   2022-05-19 14:46:52 INFO  Users:49 - User bence logged in
+  2022-05-19 15:20:29 INFO  Users:49 - User admin logged in
+  2022-05-19 15:21:39 INFO  Users:49 - User admin logged in
+  2022-05-19 15:26:50 ERROR Exception:24 - Cannot invoke "java.util.List.add(Object)" because "actual" is null
   
