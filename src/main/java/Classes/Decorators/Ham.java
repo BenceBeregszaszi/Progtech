@@ -9,6 +9,7 @@ public class Ham  extends Decorator {
 
     Pizza pizza;
 
+
     public Ham(Pizza pizza){
         this.pizza=pizza;
     }
@@ -26,5 +27,11 @@ public class Ham  extends Decorator {
     @Override
     protected int getcost() {
         return pizza.getPrice() + decorator_price;
+    }
+
+
+    @Override
+    public String toString() {
+        return pizza.getNumber() + " " + this.getname() + " " + this.getcost() + " Ft " + pizza.getDiameter() + " cm";
     }
 }

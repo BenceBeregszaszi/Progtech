@@ -62,7 +62,7 @@ public class Pizza implements Observable {
         try {
             List<Pizza> helper = new ArrayList<>();
             Connection conn = DataNode.getConnection();
-            String query = "SELECT * FROM pizza";
+            String query = "SELECT * FROM pizzas";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
             while (rs.next()) {
@@ -84,7 +84,7 @@ public class Pizza implements Observable {
     public static void AddPizza(String name, int price, int diameter){
         try {
             Connection conn = DataNode.getConnection();
-            String query = "INSERT INTO pizza (name, price, diameter) VALUES (?, ?, ?)";
+            String query = "INSERT INTO pizzas (name, price, diameter) VALUES (?, ?, ?)";
             PreparedStatement st = conn.prepareStatement(query);
             st.setString(1,name);
             st.setInt(2,price);
@@ -99,6 +99,6 @@ public class Pizza implements Observable {
 
     @Override
     public String toString() {
-        return number + " "  + name + " " + price + " Ft " + " " + diameter + " cm ";
+        return number + " "  + name + " " + price + " Ft " + diameter + " cm ";
     }
 }

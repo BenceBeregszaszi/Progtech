@@ -27,4 +27,9 @@ public class Salami  extends Decorator {
     protected int getcost() {
         return pizza.getPrice() + decorator_price;
     }
+
+    @Override
+    public String toString() {
+        return pizza.getNumber() + " " + this.getname() + " " + this.getcost() + " Ft " + pizza.getDiameter() + " cm";
+    }
 }

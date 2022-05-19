@@ -14,6 +14,11 @@ public abstract class Decorator extends Pizza {
 
    protected abstract int getdiameter();
 
+   @Override
+   public String toString() {
+      return number + " " + name + " " + price + " Ft " + diameter + " cm";
+   }
+
    protected abstract int getcost();
 
 }

@@ -40,7 +40,7 @@ public class Orders {
             List<Orders> helper = new ArrayList<>();
             Connection conn = DataNode.getConnection();
             String query = "select order_id as orderId,  p.name as pizzaName,t.name as toppingName,d.name as deliveryName, u.username as userName, p.price+t.price as fullPrice from orders\n" +
-               "inner join pizza p on orders.pizza_id = p.number\n" +
+               "inner join pizzas p on orders.pizza_id = p.number\n" +
                "inner join toppings t on orders.topping_id = t.toppings_id\n" +
                "inner join delivery d on orders.delivery_id = d.delivery_id\n" +
                "inner join users u on orders.user_id = u.username";

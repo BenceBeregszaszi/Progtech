@@ -1,8 +1,9 @@
 package Windows;
 
+import Abstract.Decorator;
+import Classes.Decorators.*;
 import Classes.LoggerClass;
 import Classes.Pizza;
-import Classes.Toppings;
 import Classes.Users;
 
 import javax.swing.*;
@@ -27,9 +28,22 @@ public class MainForm extends JFrame{
     private JButton btn_pizzas;
     private JTextField tb_selected_pizza;
     private JButton btn_rendel;
-    private JComboBox cb_topping1;
-    private JComboBox cb_topping2;
+    private JButton cornButton;
+    private JButton hamButton;
+    private JButton mushroomButton;
+    private JButton pepperoniButton;
+    private JButton btn_salami;
+
     private Users user;
+    static private Decorator pizza;
+    private Pizza addDecorator(String order){
+        int id = Integer.parseInt(order.split(" ")[0]);
+        String name = order.split(" ")[1] + " " + order.split(" ")[2];
+        int price = Integer.parseInt(order.split(" ")[3]);
+        int diameter = Integer.parseInt(order.split(" ")[5]);
+        Pizza p = new Pizza(id, name, price, diameter);
+        return p;
+    }
 
     private void setEnable(){
         logged_in.setText(this.user.getUsername());
@@ -55,6 +69,7 @@ public class MainForm extends JFrame{
 
 
     public MainForm(Users users) {
+
         this.user = users;
         setTitle("Main");
         setContentPane(main_panel);
@@ -62,9 +77,6 @@ public class MainForm extends JFrame{
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         Pizza[] pizza_array = Pizza.GetPizza();
         pizza_list.setModel(new DefaultComboBoxModel(pizza_array));
-        Toppings[] toppings_array = Toppings.getToppings();
-        cb_topping1.setModel(new DefaultComboBoxModel<>(toppings_array));
-        cb_topping2.setModel(new DefaultComboBoxModel<>(toppings_array));
         setVisible(true);
         if (this.user != null){
             setEnable();
@@ -101,7 +113,7 @@ public class MainForm extends JFrame{
         btn_cart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CartForm cart = new CartForm();
+                CartForm cart = new CartForm(pizza);
                 cart.setVisible(true);
             }
         });
@@ -142,10 +154,51 @@ public class MainForm extends JFrame{
         btn_rendel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //
+
+            }
+        });
+        btn_salami.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pizza = new Salami(addDecorator(tb_selected_pizza.getText()));
+            }
+        });
+        pepperoniButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pizza = new Pepperoni(addDecorator(tb_selected_pizza.getText()));
+            }
+        });
+        mushroomButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pizza = new Mushroom(addDecorator(tb_selected_pizza.getText()));
+            }
+        });
+        hamButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pizza = new Ham(addDecorator(tb_selected_pizza.getText()));
+            }
+        });
+        cornButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pizza = new Corn(addDecorator(tb_selected_pizza.getText()));
+            }
+        });
+        btn_rendel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (pizza != null) {
+                    CartForm cart = new CartForm(pizza);
+                    cart.setVisible(true);
+                }else return; // messageBox
             }
         });
     }
+
+
     
 
     public static void main(String[] args) {

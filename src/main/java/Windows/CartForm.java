@@ -1,6 +1,7 @@
 package Windows;
 
 import Abstract.Decorator;
+import Classes.Pizza;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,19 +11,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CartForm extends JDialog{
-    private JList list1;
     private JButton btn_cancel;
     private JButton btn_confirm;
     private JButton btn_delete;
     private JPanel cart_panel;
+    private JTextField tb_ordered_pizza;
 
-    public CartForm() {
+    public CartForm(Decorator pizza) {
         setTitle("Cart");
         setContentPane(cart_panel);
         setMinimumSize(new Dimension(1024, 800));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
-        List<Decorator> decorators = new ArrayList<>();
+        tb_ordered_pizza.setText(pizza.toString());
         btn_confirm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
