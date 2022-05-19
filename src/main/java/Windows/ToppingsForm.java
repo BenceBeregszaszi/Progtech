@@ -22,6 +22,8 @@ public class ToppingsForm extends JDialog{
         setVisible(true);
         Toppings[] toppings_array = Toppings.getToppings();
         list1.setModel(new DefaultComboBoxModel(toppings_array));
+        setLocationRelativeTo(null);
+        setVisible(true);
         btn_confirm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

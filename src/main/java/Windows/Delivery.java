@@ -24,6 +24,7 @@ public class Delivery extends JDialog{
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         Deliveries[] deliveries_list = Deliveries.Read();
         list1.setModel(new DefaultComboBoxModel(deliveries_list));
+        setLocationRelativeTo(null);
         setVisible(true);
         btn_confirm.addActionListener(new ActionListener() {
             @Override

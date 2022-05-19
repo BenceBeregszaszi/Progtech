@@ -22,6 +22,7 @@ public class Pizzas extends JDialog{
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         Pizza[] pizza_array = Pizza.GetPizza();
         list1.setModel(new DefaultComboBoxModel(pizza_array));
+        setLocationRelativeTo(null);
         setVisible(true);
         btn_confirm.addActionListener(new ActionListener() {
             @Override

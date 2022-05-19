@@ -30,12 +30,13 @@ public class OrdersObserver implements Observer {
          Connection conn = DataNode.getConnection();
          String query = "INSERT INTO orders (pizza_id, topping_id, delivery_id, user_id) VALUE (?, ?, ?, ?)";
          PreparedStatement st = conn.prepareStatement(query);
-         st.setInt(1, this.decorator.pizza_number);
+         st.setInt(1, decorator.pizza_number);
          st.setInt(2, decorator.topping);
          st.setInt(3, Integer.parseInt(delivery_id));
          st.setString(4, user_id);
          st.execute();
          conn.close();
+         LoggerClass.OrdersAddLog(user_id);
       } catch (Exception e){
          LoggerClass.ExceptionLog(e.getMessage());
       }

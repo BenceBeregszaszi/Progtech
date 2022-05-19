@@ -25,9 +25,9 @@ public class LoggerClass {
         System.out.println(exceptionMessage);
     }
 
-    public static void OrdersAddLog(){
-        ordersLogger.info("New order");
-        System.out.println("New order with");
+    public static void OrdersAddLog(String user){
+        ordersLogger.info("New order from user: " + user);
+        System.out.println("New order from user: " + user);
     }
 
     public static void OrdersDeleteLog(int id) {

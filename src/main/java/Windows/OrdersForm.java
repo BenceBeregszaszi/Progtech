@@ -20,6 +20,7 @@ public class OrdersForm  extends JDialog{
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         Orders[] orders_list = Orders.Read();
         list1.setModel(new DefaultComboBoxModel(orders_list));
+        setLocationRelativeTo(null);
         setVisible(true);
         btn_delete.addActionListener(new ActionListener() {
             @Override

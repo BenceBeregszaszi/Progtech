@@ -1,6 +1,5 @@
 package Windows;
 
-import Classes.DataNode;
 import Classes.Users;
 
 import javax.swing.*;
@@ -14,15 +13,17 @@ public class Login extends JDialog{
     private JTextField tf_username;
     private JLabel lb_passsword;
     private JLabel lb_username;
-    private JTextField tf_password;
     private JButton btn_cancel;
     private JButton btn_login;
+    private JPasswordField tf_password;
 
     public Login(){
-        setTitle("Main");
+        setTitle("Login");
         setContentPane(login);
         setMinimumSize(new Dimension(800,500));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setVisible(true);
         btn_cancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

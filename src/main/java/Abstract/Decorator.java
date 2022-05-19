@@ -6,7 +6,6 @@ public abstract class Decorator extends Pizza {
 
    public int pizza_number;
 
-   public int topping_number;
 
    public Pizza pizza;
 

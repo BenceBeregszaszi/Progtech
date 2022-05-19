@@ -72,6 +72,7 @@ public class MainForm extends JFrame{
     }
 
 
+
     public MainForm(Users users) {
 
         this.user = users;
@@ -82,13 +83,16 @@ public class MainForm extends JFrame{
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         Pizza[] pizza_array = Pizza.GetPizza();
         pizza_list.setModel(new DefaultComboBoxModel(pizza_array));
+        setLocationRelativeTo(null);
         setVisible(true);
-        if (this.user != null){
+        if (this.user != null && user.getPosition_id() == 1){
             setEnable();
         }
-        else{
+        else if (this.user != null && user.getPosition_id() == 2){
             setDisabled();
+            btn_orders.setVisible(true);
         }
+        else setDisabled();
 
         btn_login.addActionListener(new ActionListener() {
             @Override
@@ -162,8 +166,9 @@ public class MainForm extends JFrame{
                 Pizza t = addDecorator(tb_selected_pizza.getText());
                 pizza = new Salami(t);
                 pizza.pizza_number = t.getNumber();
-                pizza.topping_number = 3;
+                pizza.topping = 3;
                 temp.add(pizza);
+                tb_selected_pizza.setText(t.toString());
             }
         });
         pepperoniButton.addActionListener(new ActionListener() {
@@ -172,7 +177,7 @@ public class MainForm extends JFrame{
                 Pizza t = addDecorator(tb_selected_pizza.getText());
                 pizza = new Pepperoni(t);
                 pizza.pizza_number = t.getNumber();
-                pizza.topping_number = 2;
+                pizza.topping = 2;
                 temp.add(pizza);
             }
         });
@@ -182,7 +187,7 @@ public class MainForm extends JFrame{
                 Pizza t = addDecorator(tb_selected_pizza.getText());
                 pizza = new Mushroom(t);
                 pizza.pizza_number = t.getNumber();
-                pizza.topping_number = 5;
+                pizza.topping = 5;
                 temp.add(pizza);
             }
         });
@@ -192,7 +197,7 @@ public class MainForm extends JFrame{
                 Pizza t = addDecorator(tb_selected_pizza.getText());
                 pizza = new Ham(t);
                 pizza.pizza_number = t.getNumber();
-                pizza.topping_number = 1;
+                pizza.topping = 1;
                 temp.add(pizza);
             }
         });
@@ -202,23 +207,30 @@ public class MainForm extends JFrame{
                 Pizza t = addDecorator(tb_selected_pizza.getText());
                 pizza = new Corn(t);
                 pizza.pizza_number = t.getNumber();
-                pizza.topping_number = 4;
+                pizza.topping = 4;
                 temp.add(pizza);
             }
         });
         btn_rendel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (pizza != null) {
+                if (pizza != null && user != null) {
                     CartForm cart = new CartForm(temp,user.getUsername());
                     cart.setVisible(true);
-                }else return; // messageBox
+                }else if (pizza != null && user == null){
+                    user = new Users();
+                    user.setUsername("user");
+                    CartForm cart = new CartForm(temp,user.getUsername());
+                    cart.setVisible(true);
+                }else {
+                    JOptionPane.showMessageDialog(main_panel,"Nem válaztottál ki pizzát!");
+                }
             }
         });
     }
 
 
-    
+
 
     public static void main(String[] args) {
         MainForm mainForm = new MainForm(null);

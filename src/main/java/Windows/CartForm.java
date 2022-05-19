@@ -1,11 +1,8 @@
 package Windows;
 
 import Abstract.Decorator;
-import Classes.Deliveries;
-import Classes.LoggerClass;
+import Classes.*;
 import Classes.Observers.OrdersObserver;
-import Classes.Pizza;
-import Classes.Users;
 import Interfaces.Observer;
 
 import javax.swing.*;
@@ -14,6 +11,8 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +38,7 @@ public class CartForm extends JDialog{
         Deliveries[] deliveries_list = Deliveries.Read();
         list2.setModel(new DefaultComboBoxModel(deliveries_list));
         list1.setModel(new DefaultComboBoxModel(pizza.toArray()));
+        setLocationRelativeTo(null);
         setVisible(true);
         btn_confirm.addActionListener(new ActionListener() {
             @Override
@@ -47,6 +47,8 @@ public class CartForm extends JDialog{
                 decorator.Add(new OrdersObserver(decorator, user, list2.getSelectedValue().toString().split(" ")[0]));
                 try {
                     decorator.Notify();
+                    pizza.remove(list1.getSelectedIndex());
+                    list1.setModel(new DefaultComboBoxModel(pizza.toArray()));
                 } catch (Exception ex) {
                     LoggerClass.ExceptionLog(ex.getMessage());
                 }
@@ -55,7 +57,8 @@ public class CartForm extends JDialog{
         btn_delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //decorators.remove();
+                pizza.remove(list1.getSelectedIndex());
+                list1.setModel(new DefaultComboBoxModel(pizza.toArray()));
             }
         });
         btn_cancel.addActionListener(new ActionListener() {
