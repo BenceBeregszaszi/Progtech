@@ -15,7 +15,7 @@ public class Mushroom  extends Decorator {
 
     @Override
     protected String getname() {
-        return pizza.getName() + "Gombával";
+        return pizza.getName() + "Gomba";
     }
 
     @Override

@@ -11,11 +11,12 @@ public class Salami  extends Decorator {
 
     public Salami(Pizza pizza){
         this.pizza=pizza;
+        topping = 3;
     }
 
     @Override
     protected String getname() {
-        return pizza.getName() + "Szalámival";
+        return pizza.getName() + "Szalámi";
     }
 
     @Override

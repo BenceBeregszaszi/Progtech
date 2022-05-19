@@ -27,6 +27,8 @@ public class Pizza implements Observable {
 
     protected int diameter;
 
+    public int topping;
+
     DataNode datanode;
 
     Decorator decorator;
@@ -51,7 +53,7 @@ public class Pizza implements Observable {
     }
 
     @Override
-    public void Notify() {
+    public void Notify() throws SQLException {
         for (Observer o : this.observerCollection) {
             o.update();
         }

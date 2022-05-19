@@ -12,6 +12,8 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainForm extends JFrame{
 
@@ -36,6 +38,7 @@ public class MainForm extends JFrame{
 
     private Users user;
     static private Decorator pizza;
+    private List<Decorator> temp;
     private Pizza addDecorator(String order){
         int id = Integer.parseInt(order.split(" ")[0]);
         String name = order.split(" ")[1] + " " + order.split(" ")[2];
@@ -73,6 +76,7 @@ public class MainForm extends JFrame{
         this.user = users;
         setTitle("Main");
         setContentPane(main_panel);
+        temp = new ArrayList<>();
         setMinimumSize(new Dimension(1024, 800));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         Pizza[] pizza_array = Pizza.GetPizza();
@@ -113,7 +117,7 @@ public class MainForm extends JFrame{
         btn_cart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CartForm cart = new CartForm(pizza);
+                CartForm cart = new CartForm(temp,user.getUsername());
                 cart.setVisible(true);
             }
         });
@@ -151,47 +155,61 @@ public class MainForm extends JFrame{
                 tb_selected_pizza.setText(pizza_list.getSelectedValue().toString());
             }
         });
-        btn_rendel.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
         btn_salami.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pizza = new Salami(addDecorator(tb_selected_pizza.getText()));
+                Pizza t = addDecorator(tb_selected_pizza.getText());
+                pizza = new Salami(t);
+                pizza.pizza_number = t.getNumber();
+                pizza.topping_number = 3;
+                temp.add(pizza);
             }
         });
         pepperoniButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pizza = new Pepperoni(addDecorator(tb_selected_pizza.getText()));
+                Pizza t = addDecorator(tb_selected_pizza.getText());
+                pizza = new Pepperoni(t);
+                pizza.pizza_number = t.getNumber();
+                pizza.topping_number = 2;
+                temp.add(pizza);
             }
         });
         mushroomButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pizza = new Mushroom(addDecorator(tb_selected_pizza.getText()));
+                Pizza t = addDecorator(tb_selected_pizza.getText());
+                pizza = new Mushroom(t);
+                pizza.pizza_number = t.getNumber();
+                pizza.topping_number = 5;
+                temp.add(pizza);
             }
         });
         hamButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pizza = new Ham(addDecorator(tb_selected_pizza.getText()));
+                Pizza t = addDecorator(tb_selected_pizza.getText());
+                pizza = new Ham(t);
+                pizza.pizza_number = t.getNumber();
+                pizza.topping_number = 1;
+                temp.add(pizza);
             }
         });
         cornButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pizza = new Corn(addDecorator(tb_selected_pizza.getText()));
+                Pizza t = addDecorator(tb_selected_pizza.getText());
+                pizza = new Corn(t);
+                pizza.pizza_number = t.getNumber();
+                pizza.topping_number = 4;
+                temp.add(pizza);
             }
         });
         btn_rendel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (pizza != null) {
-                    CartForm cart = new CartForm(pizza);
+                    CartForm cart = new CartForm(temp,user.getUsername());
                     cart.setVisible(true);
                 }else return; // messageBox
             }

@@ -76,9 +76,6 @@ public class Orders {
         LoggerClass.OrdersDeleteLog(order_id);
     }
 
-    public void Add(){
-        //log
-    }
     
     @Override
     public String toString() {

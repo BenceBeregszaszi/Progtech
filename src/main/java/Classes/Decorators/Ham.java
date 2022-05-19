@@ -16,7 +16,7 @@ public class Ham  extends Decorator {
 
     @Override
     protected String getname() {
-        return pizza.getName() + "Sonkával";
+        return pizza.getName() + "Sonka";
     }
 
     @Override
@@ -28,7 +28,6 @@ public class Ham  extends Decorator {
     protected int getcost() {
         return pizza.getPrice() + decorator_price;
     }
-
 
     @Override
     public String toString() {

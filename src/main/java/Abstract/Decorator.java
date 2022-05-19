@@ -4,7 +4,11 @@ import Classes.Pizza;
 
 public abstract class Decorator extends Pizza {
 
-   protected Pizza pizza;
+   public int pizza_number;
+
+   public int topping_number;
+
+   public Pizza pizza;
 
    protected int decorator_price;
 

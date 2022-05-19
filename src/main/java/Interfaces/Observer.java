@@ -1,6 +1,8 @@
 package Interfaces;
 
+import java.sql.SQLException;
+
 public interface Observer {
 
-    void update();
+    void update() throws SQLException;
 }

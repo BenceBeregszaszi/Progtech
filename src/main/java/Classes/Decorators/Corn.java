@@ -13,7 +13,7 @@ public class Corn extends Decorator {
 
     @Override
     protected String getname() {
-        return pizza.getName() + " Kukoricával";
+        return pizza.getName() + " Kukorica";
     }
 
     @Override

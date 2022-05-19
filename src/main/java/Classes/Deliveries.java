@@ -74,6 +74,6 @@ public class Deliveries {
 
     @Override
     public String toString() {
-        return getLocation() +"-"+ getName();
+        return getDelivery_id() + " " + getLocation() +"-"+ getName();
     }
 }

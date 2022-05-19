@@ -13,7 +13,7 @@ public class Pepperoni  extends Decorator {
 
     @Override
     protected String getname() {
-        return pizza.getName() + "Pepperónival";
+        return pizza.getName() + " Pepperóni";
     }
 
     @Override
