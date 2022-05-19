@@ -41,31 +41,4 @@ public class OrdersObserver implements Observer {
       }
    }
 
-   private int readDelivery(String name){
-      int temp = 0;
-      try {
-         Connection c = DataNode.getConnection();
-         PreparedStatement st = c.prepareStatement("SELECT delivery_id FROM delivery WHERE name = ?");
-         st.setString(1,name);
-         ResultSet rs = st.getResultSet();
-         temp = rs.getInt("delivery_id");
-      } catch (Exception e) {
-         LoggerClass.ExceptionLog(e.getMessage());
-      }
-      return temp;
-   }
-
-   private int readTopping(String name){
-      int temp = 0;
-      try {
-         Connection c = DataNode.getConnection();
-         PreparedStatement st = c.prepareStatement("SELECT toppings_id FROM toppings WHERE name = ?");
-         st.setString(1,name);
-         ResultSet rs = st.getResultSet();
-         temp = rs.getInt("toppings_id");
-      } catch (Exception e) {
-         LoggerClass.ExceptionLog(e.getMessage());
-      }
-      return temp;
-   }
 }

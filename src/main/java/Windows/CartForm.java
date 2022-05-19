@@ -29,14 +29,6 @@ public class CartForm extends JDialog{
 
     private Decorator decorator;
 
-    private Pizza addDecorator(String order){
-        int id = Integer.parseInt(order.split(" ")[0]);
-        String name = order.split(" ")[1] + " " + order.split(" ")[2];
-        int price = Integer.parseInt(order.split(" ")[3]);
-        int diameter = Integer.parseInt(order.split(" ")[5]);
-        Pizza p = new Pizza(id, name, price, diameter);
-        return p;
-    }
 
 
     public CartForm(List<Decorator> pizza, String user) {
