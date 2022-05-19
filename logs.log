@@ -58,4 +58,8 @@
   2022-05-19 15:20:29 INFO  Users:49 - User admin logged in
   2022-05-19 15:21:39 INFO  Users:49 - User admin logged in
   2022-05-19 15:26:50 ERROR Exception:24 - Cannot invoke "java.util.List.add(Object)" because "actual" is null
+  2022-05-19 17:09:33 ERROR Exception:24 - Table 'pizza.pizzas' doesn't exist
+  2022-05-19 17:09:33 ERROR Exception:24 - Table 'pizza.pizzas' doesn't exist
+  2022-05-19 17:26:41 INFO  Users:49 - User admin logged in
+  2022-05-19 17:26:56 ERROR Exception:24 - Cannot add or update a child row: a foreign key constraint fails (`pizza`.`orders`, CONSTRAINT `FK_foreing` FOREIGN KEY (`topping_id`) REFERENCES `toppings` (`toppings_id`))
   
