@@ -74,7 +74,6 @@ public class MainForm extends JFrame{
 
 
     public MainForm(Users users) {
-
         this.user = users;
         setTitle("Main");
         setContentPane(main_panel);
@@ -168,7 +167,7 @@ public class MainForm extends JFrame{
                 pizza.pizza_number = t.getNumber();
                 pizza.topping = 3;
                 temp.add(pizza);
-                tb_selected_pizza.setText(t.toString());
+                tb_selected_pizza.setText(pizza.toString());
             }
         });
         pepperoniButton.addActionListener(new ActionListener() {
@@ -179,6 +178,7 @@ public class MainForm extends JFrame{
                 pizza.pizza_number = t.getNumber();
                 pizza.topping = 2;
                 temp.add(pizza);
+                tb_selected_pizza.setText(pizza.toString());
             }
         });
         mushroomButton.addActionListener(new ActionListener() {
@@ -189,6 +189,7 @@ public class MainForm extends JFrame{
                 pizza.pizza_number = t.getNumber();
                 pizza.topping = 5;
                 temp.add(pizza);
+                tb_selected_pizza.setText(pizza.toString());
             }
         });
         hamButton.addActionListener(new ActionListener() {
@@ -199,6 +200,7 @@ public class MainForm extends JFrame{
                 pizza.pizza_number = t.getNumber();
                 pizza.topping = 1;
                 temp.add(pizza);
+                tb_selected_pizza.setText(pizza.toString());
             }
         });
         cornButton.addActionListener(new ActionListener() {
@@ -209,6 +211,7 @@ public class MainForm extends JFrame{
                 pizza.pizza_number = t.getNumber();
                 pizza.topping = 4;
                 temp.add(pizza);
+                tb_selected_pizza.setText(pizza.toString());
             }
         });
         btn_rendel.addActionListener(new ActionListener() {
