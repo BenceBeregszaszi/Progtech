@@ -33,8 +33,6 @@ class UsersTest {
     assertEquals(expected.getUsername(), actual.getUsername());
 }
 
-    }
-
     @Test
     void setUsername() {
         String expected = "admin";
