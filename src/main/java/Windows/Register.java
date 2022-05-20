@@ -16,7 +16,7 @@ public class Register extends JDialog{
     private JPanel RegisterP;
 
     public Register(){
-        setTitle("Registration");
+        setTitle("");
         setContentPane(RegisterP);
         setMinimumSize(new Dimension(800,500));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);

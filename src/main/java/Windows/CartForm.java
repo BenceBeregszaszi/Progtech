@@ -31,7 +31,7 @@ public class CartForm extends JDialog{
 
 
     public CartForm(List<Decorator> pizza, String user) {
-        setTitle("Cart");
+        setTitle("");
         setContentPane(cart_panel);
         setMinimumSize(new Dimension(1024, 800));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);

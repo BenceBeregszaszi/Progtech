@@ -18,7 +18,7 @@ public class Login extends JDialog{
     private JPasswordField tf_password;
 
     public Login(){
-        setTitle("Login");
+        setTitle("");
         setContentPane(login);
         setMinimumSize(new Dimension(800,500));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);

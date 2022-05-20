@@ -90,6 +90,10 @@ public class MainForm extends JFrame{
         else if (this.user != null && user.getPosition_id() == 2){
             setDisabled();
             btn_orders.setVisible(true);
+            btn_cart.setVisible(true);
+            btn_login.setVisible(false);
+            btn_register.setVisible(false);
+            logoutButton.setVisible(true);
         }
         else setDisabled();
 

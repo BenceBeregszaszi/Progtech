@@ -85,4 +85,22 @@
   2022-05-19 18:10:23 INFO  Users:59 - User admin logged out
   2022-05-19 18:22:16 INFO  Users:49 - User bence logged in
   2022-05-19 18:24:27 INFO  Orders:29 - New order from user: user
+  2022-05-20 09:17:14 INFO  Users:49 - User admin logged in
+  2022-05-20 09:18:14 INFO  Users:49 - User admin logged in
+  2022-05-20 09:18:24 INFO  Orders:34 - Order with 14 deleted
+  2022-05-20 09:18:34 ERROR Exception:24 - Cannot delete or update a parent row: a foreign key constraint fails (`pizza`.`orders`, CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`delivery_id`) REFERENCES `delivery` (`delivery_id`))
+  2022-05-20 09:18:34 INFO  Deliveries:19 - Delivery deleted with Erőd name
+  2022-05-20 09:18:55 ERROR Exception:24 - Cannot delete or update a parent row: a foreign key constraint fails (`pizza`.`orders`, CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`delivery_id`) REFERENCES `delivery` (`delivery_id`))
+  2022-05-20 09:18:55 INFO  Deliveries:19 - Delivery deleted with FoodPanda name
+  2022-05-20 09:22:18 INFO  Users:54 - New user janos
+  2022-05-20 09:22:18 INFO  Users:49 - User janos logged in
+  2022-05-20 09:23:20 INFO  Users:49 - User janos logged in
+  2022-05-20 09:25:54 INFO  Users:49 - User janos logged in
+  2022-05-20 09:25:58 INFO  Users:59 - User janos logged out
+  2022-05-20 09:26:03 INFO  Users:49 - User admin logged in
+  2022-05-20 09:26:22 INFO  Pizza:39 - New pizza created with Temp1200 Ft30 cm
+  2022-05-20 09:28:48 INFO  Users:49 - User admin logged in
+  2022-05-20 09:30:49 INFO  Users:49 - User admin logged in
+  2022-05-20 09:30:59 INFO  Deliveries:14 - Delivery created with Eger location and valami name
+  2022-05-20 09:31:15 INFO  Toppings:44 - New topping withValami1200 Ft
   

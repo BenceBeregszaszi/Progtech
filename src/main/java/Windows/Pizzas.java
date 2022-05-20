@@ -16,7 +16,7 @@ public class Pizzas extends JDialog{
     private JPanel pizzas_panel;
 
     public Pizzas() {
-        setTitle("Pizzas");
+        setTitle("");
         setContentPane(pizzas_panel);
         setMinimumSize(new Dimension(1024, 800));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);

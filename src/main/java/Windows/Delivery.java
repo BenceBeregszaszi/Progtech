@@ -12,13 +12,13 @@ import java.awt.event.ActionListener;
 public class Delivery extends JDialog{
     private JList list1;
     private JButton btn_confirm;
-    private JTextField tb_location;
     private JTextField tb_name;
     private JPanel delivery_panel;
     private JButton btn_delete;
+    private JTextField tb_location;
 
     public Delivery() {
-        setTitle("Delivery");
+        setTitle("");
         setContentPane(delivery_panel);
         setMinimumSize(new Dimension(1024, 800));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -39,6 +39,8 @@ public class Delivery extends JDialog{
                 String splitname = tb_name.getText();
                 String name = splitname.split("-")[1];
                 Deliveries.Delete(name);
+                Deliveries[] deliveries_list = Deliveries.Read();
+                list1.setModel(new DefaultComboBoxModel(deliveries_list));
             }
         });
         list1.addListSelectionListener(new ListSelectionListener() {

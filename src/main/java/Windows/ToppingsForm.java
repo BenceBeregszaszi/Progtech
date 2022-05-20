@@ -15,7 +15,7 @@ public class ToppingsForm extends JDialog{
     private JPanel toppings_panel;
 
     public ToppingsForm() {
-        setTitle("Toppings");
+        setTitle("");
         setContentPane(toppings_panel);
         setMinimumSize(new Dimension(1024, 800));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);

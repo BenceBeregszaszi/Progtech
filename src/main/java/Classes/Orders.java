@@ -12,7 +12,8 @@ import java.util.List;
 @Setter
 @Getter
 public class Orders {
-    
+
+
     public Orders(int order_id, String pizzaName, String toppingName, String delivery_name, String username, int fullPrice) {
         this.setOrder_id(order_id);
         this.setPizzaName(pizzaName);

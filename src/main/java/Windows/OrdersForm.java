@@ -14,7 +14,7 @@ public class OrdersForm  extends JDialog{
     private JPanel orders_panel;
 
     public OrdersForm() {
-        setTitle("Orders");
+        setTitle("");
         setContentPane(orders_panel);
         setMinimumSize(new Dimension(1024, 800));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -29,6 +29,8 @@ public class OrdersForm  extends JDialog{
                 String id = order.split(" ")[0];
                 int orderd_id = Integer.parseInt(id);
                 Orders.Delete(orderd_id);
+                Orders[] orders_list = Orders.Read();
+                list1.setModel(new DefaultComboBoxModel(orders_list));
             }
         });
         btn_cancel.addActionListener(new ActionListener() {
